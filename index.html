@@ -13,8 +13,9 @@
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
 <script>
-    const socket = io('http://128.199.232.210', {
-        transports: ['polling']
+    const socket = io('http://128.199.232.210:8080', {
+        transports: ['polling'],
+        withCredentials: true
         // transports: ['websocket']
     });
 
