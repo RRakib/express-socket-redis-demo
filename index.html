@@ -16,6 +16,12 @@
     socket.on('connect', () => {
         console.log(`Socket connected id: ${socket.id}`);
     });
+
+
+    socket.on('hello', data => {
+        console.log("Hello Event", data)
+    });
+
 </script>
 </body>
 

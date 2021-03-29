@@ -22,7 +22,10 @@ io.on('connection', (socket) => {
     console.log('a user connected');
     socket.join(`room${process.env.PORT}`);
     socket.broadcast.emit('hello', 'to all clients except sender');
-    socket.to('room8080').emit('hello', "to all clients in 'room42' room except sender");
+    socket.to('room8081').emit('hello', "to all clients in 'room42' room except sender");
+    socket.on("fontfnt", (msg) => {
+        console.log(msg, 27);
+    })
 });
 
 app.get('/', function(req, res) {
