@@ -8,6 +8,8 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="PropertiesComponent">
+    <property name="javascript.nodejs.core.library.configured.version" value="14.15.0" />
+    <property name="javascript.nodejs.core.library.typings.version" value="14.14.37" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager">

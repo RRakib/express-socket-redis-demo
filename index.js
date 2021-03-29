@@ -4,10 +4,20 @@ const  app  =  express();
 
 app.use(cors());
 
-app.get('/', (req, res) => {
+const server = require('http').createServer(app);
+const io = require('socket.io')(server, {
+    cors: {
+        origin: '*',
+    }
+});
+
+io.on('connection', (socket) => {
+    console.log('a user connected');
+});
+
+app.get('/', function(req, res) {
     res.end(`Hi, PID: ${process.pid}`);
 });
 
-app.listen(process.env.PORT);
 
-console.log(`Server running on ${process.env.PORT} port, PID: ${process.pid}`);
+server.listen(process.env.PORT);
