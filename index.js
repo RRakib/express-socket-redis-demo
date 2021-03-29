@@ -1,7 +1,6 @@
 const cors = require('cors');
 const express  =  require('express');
-const RedisClient = require('redis');
-const createAdapter = require('socket.io-redis');
+import redisAdapter from 'socket.io-redis';
 
 
 const  app  =  express();
@@ -17,10 +16,7 @@ const io = require('socket.io')(server, {
     }
 });
 
-const pubClient = new RedisClient({ host: 'localhost', port: 6379 });
-const subClient = pubClient.duplicate();
-
-io.adapter(createAdapter({ pubClient, subClient }));
+io.adapter(redisAdapter({ host: 'localhost', port: 6379 }));
 
 io.on('connection', (socket) => {
     console.log('a user connected');
